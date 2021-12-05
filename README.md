@@ -1,6 +1,7 @@
 # PathTool
 Basic script that adds paths to your PATH variable and bash profile. Designed for unix systems.
 
+***
 
 ## Install
 
@@ -25,3 +26,16 @@ This installs PathTool to a custom location
 chmod +x install.sh
 ./install.sh $PATHTOOL
 ```
+
+
+***
+
+## Use
+
+Run PathTool then add the directory you want to add.
+
+```
+pathtool /path/to/bins/
+```
+
+Confirm that directory, then you are all set!
