@@ -1,0 +1,52 @@
+#!/bin/bash
+
+
+
+if [ $# -gt 0 ]; then
+	while true; do
+        path=""
+
+
+
+
+		# Ask for input
+		echo "Add \"$1\" to the bash profile?"
+		echo "y/n"
+		read agreeinput
+
+		if [ "$agreeinput" == "y" ] || ["$agreeinput" == "Y" ]; then
+			
+			# Determine if using .profile or .bash_profilew
+			if test -f "$HOME/.profile"; then
+    			FILE=$HOME/.profile
+			elif test -f "$HOME/.bash_profile"; then
+				FILE=$HOME/.bash_profile
+			else 
+				# If file isn't found
+				echo "ERROR: bash profile not found."
+				exit 1
+			fi
+
+			
+			# Echos then appends output
+			echo -n "Writing "
+			echo  "PATH=\$PATH:$1" >> $FILE
+			echo "to ${FILE}"
+			export PATH=\$PATH:$1
+
+			# Stops the while loop
+	    	exit 0
+
+		elif [[ "$agreeinput" == "n" || "$agreeinput" == "N" ]]; then
+			
+			# Exit Script
+			exit 0
+		fi
+		
+	done
+else 
+	echo "Path Tool"
+	echo "Created by: The Average Dolphin"
+	echo "GPL v2"
+	exit 0
+fi
